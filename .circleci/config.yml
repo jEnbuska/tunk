@@ -25,5 +25,5 @@ jobs:
           name: Build and tag api
           command: |
             ls
-            docker-compose --project-name hours run api npm run build
+            docker-compose --project-name hours build api
             docker tag hours_api:latest joonadocker/tunk:latest

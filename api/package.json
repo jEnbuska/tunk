@@ -2,8 +2,9 @@
   "name": "hours-api",
   "license": "MIT",
   "scripts": {
+    "prestart": "tsc",
     "start": "node dist/server",
-    "build": "tsc --extendedDiagnostics",
+    "build": "tsc",
     "dev": "ts-node-dev --no-notify --respawn --transpileOnly src/server"
   },
   "dependencies": {
