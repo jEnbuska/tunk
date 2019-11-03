@@ -21,14 +21,14 @@ jobs:
 
       # Download and cache dependencies
       - run:
-        name: Install Docker Compose
-        command: |
+          name: Install Docker Compose
+          command: |
             curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
             chmod +x ~/docker-compose
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - run:
-        name: Build and tag api
-        command: |
-          ls
-          docker-compose --project-name hours run api npm run build
-          docker tag hours_api:latest joonadocker/tunk:latest
+          name: Build and tag api
+          command: |
+            ls
+            docker-compose --project-name hours run api npm run build
+            docker tag hours_api:latest joonadocker/tunk:latest
