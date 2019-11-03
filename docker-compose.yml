@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:11.5
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=hours_db
+    ports:
+      - 5432:5432
+
+  api:
+    build: api
+    command:  npm run dev
+    environment:
+      SECRET: secret
+      NODE_ENV: development
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: hours_db
+      POSTGRES_HOST: db
+      PORT: 9000
+    volumes:
+      - ./api/src:/usr/src/app/src
+      - ./api/dist:/usr/src/app/dist
+      - ./api/package.json:/usr/src/app/package.json
+      - ./api/package-lock.json:/usr/src/app/package-lock.json
+      - ./api/tests:/usr/src/app/tests
+      - ./api/tsconfig.json:/usr/src/app/tsconfig.json
+    ports:
+      - 9000:9000
+    depends_on:
+      - db
+
+volumes:
+  postgresdata:

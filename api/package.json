@@ -1,0 +1,28 @@
+{
+  "name": "hours-api",
+  "license": "MIT",
+  "scripts": {
+    "start": "node dist/server",
+    "build": "tsc --extendedDiagnostics",
+    "dev": "ts-node-dev --no-notify --respawn --transpileOnly src/server"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "graphql": "^14.5.8",
+    "graphql-shield": "^7.0.1",
+    "graphql-yoga": "^1.18.3",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^7.12.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.20"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.3.5",
+    "@types/node": "^12.12.5",
+    "@types/ws": "^6.0.3",
+    "ts-node": "^8.4.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.6.4"
+  }
+}
