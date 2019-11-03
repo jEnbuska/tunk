@@ -28,3 +28,4 @@ jobs:
             docker-compose --project-name hours build api
             docker tag hours_api:latest joonadocker/tunk:latest
             echo $DOCKER_HUB_ACCESSTOKEN | docker login --username joonadocker --password-stdin
+            docker push joonadocker/tunk:latest
